@@ -1,0 +1,19 @@
+{
+    "name": "polidog/blog",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "polidog",
+            "email": "polidogs@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Polidog\\Blog\\": "src/"
+        }
+    },
+    "require": {
+        "phpmentors/domain-kata": "1.4.*"
+    }
+}
