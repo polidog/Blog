@@ -1,5 +1,5 @@
 <?php
-namespace Polidog\Blog\Model;
+namespace Polidog\Blog\Model\Post;
 
 
 use PHPMentors\DomainKata\Entity\EntityInterface;

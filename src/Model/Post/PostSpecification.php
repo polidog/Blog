@@ -1,6 +1,5 @@
 <?php
-namespace Polidog\Blog\Model;
-
+namespace Polidog\Blog\Model\Post;
 
 final class PostSpecification
 {

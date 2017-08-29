@@ -5,12 +5,12 @@ namespace Polidog\Blog\Application\UseCase;
 
 
 use Polidog\Blog\Application\TransactionManager;
-use Polidog\Blog\Model\AuthorRepository;
-use Polidog\Blog\Model\Post;
-use Polidog\Blog\Model\PostNotFoundException;
-use Polidog\Blog\Model\PostRepositoryInterface;
-use Polidog\Blog\Model\PostSpecification;
-use Polidog\Blog\Model\PostStatus;
+use Polidog\Blog\Model\Post\AuthorRepository;
+use Polidog\Blog\Model\Post\Post;
+use Polidog\Blog\Model\Post\PostNotFoundException;
+use Polidog\Blog\Model\Post\PostRepositoryInterface;
+use Polidog\Blog\Model\Post\PostSpecification;
+use Polidog\Blog\Model\Post\PostStatus;
 
 class AddPost
 {

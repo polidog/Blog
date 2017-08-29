@@ -1,8 +1,7 @@
 <?php
 
 
-namespace Polidog\Blog\Model;
-
+namespace Polidog\Blog\Model\Post;
 
 use PHPMentors\DomainKata\Entity\EntityInterface;
 
@@ -39,10 +38,11 @@ final class Post implements EntityInterface
     private $status;
 
     /**
-     * @param           $title
-     * @param           $content
-     * @param \DateTime $displayDate
-     * @param Author    $author
+     * @param            $title
+     * @param            $content
+     * @param \DateTime  $displayDate
+     * @param Author     $author
+     * @param PostStatus $postStatus
      */
     public function __construct($title, $content, \DateTime $displayDate, Author $author, PostStatus $postStatus)
     {

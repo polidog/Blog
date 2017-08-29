@@ -1,8 +1,7 @@
 <?php
 
 
-namespace Polidog\Blog\Model;
-
+namespace Polidog\Blog\Model\Post;
 
 class PostNotFoundException extends \RuntimeException
 {

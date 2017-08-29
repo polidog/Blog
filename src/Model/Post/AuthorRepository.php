@@ -1,8 +1,6 @@
 <?php
 
-
-namespace Polidog\Blog\Model;
-
+namespace Polidog\Blog\Model\Post;
 
 interface AuthorRepository
 {
