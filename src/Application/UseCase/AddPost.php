@@ -5,7 +5,6 @@ namespace Polidog\Blog\Application\UseCase;
 
 
 use Polidog\Blog\Application\TransactionManager;
-use Polidog\Blog\Model\Author;
 use Polidog\Blog\Model\AuthorRepository;
 use Polidog\Blog\Model\Post;
 use Polidog\Blog\Model\PostNotFoundException;
@@ -43,14 +42,17 @@ class AddPost
     }
 
 
-    public function run(Author $author, \DateTime $displayDate, string $title, string $content)
+    public function run(int $authorId, \DateTime $displayDate, string $title, string $content)
     {
         $postStatus = PostStatus::newDraft();
-        $post = new Post($title, $content, $displayDate, $author, $postStatus);
+        $author = $this->authorRepository->get($authorId);
+
         $spec = new PostSpecification();
         if (false === $spec->isSatisfiedBy($author)) {
             throw new PostNotFoundException(); // TODO error message.
         }
+
+        $post = new Post($title, $content, $displayDate, $author, $postStatus);
 
         $this->transactionManager->begin();
         try {
