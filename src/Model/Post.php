@@ -4,14 +4,14 @@
 namespace Polidog\Blog\Model;
 
 
-use Polidog\Blog\Application\Dto\DtoInterface;
+use PHPMentors\DomainKata\Entity\EntityInterface;
 
-final class Post
+final class Post implements EntityInterface
 {
     /**
-     * @var integer
+     * @var int
      */
-    private $id;
+    private $postId;
 
     /**
      * @var string
@@ -34,31 +34,43 @@ final class Post
     private $author;
 
     /**
-     * @param string    $title
-     * @param string    $content
-     * @param \DateTime $displayDate
+     * @var PostStatus
      */
-    public function __construct($title, $content, \DateTime $displayDate)
+    private $status;
+
+    /**
+     * @param           $title
+     * @param           $content
+     * @param \DateTime $displayDate
+     * @param Author    $author
+     */
+    public function __construct($title, $content, \DateTime $displayDate, Author $author, PostStatus $postStatus)
     {
         $this->title = $title;
         $this->content = $content;
         $this->displayDate = $displayDate;
+        $this->author = $author;
+        $this->status = $postStatus;
     }
 
-    public function transfer(DtoInterface $dto)
+    /**
+     * @return int
+     */
+    public function getPostId(): ?int
     {
-        $dto->inject($this->output());
+        return $this->postId;
     }
 
-    private function output()
+    /**
+     * @param int $postId
+     * @return $this
+     */
+    public function setPostId(int $postId)
     {
-        return [
-            'id' => $this->id,
-            'title' => $this->title,
-            'content' => $this->content,
-            'displayDate' => $this->displayDate,
-            'author' => $this->author, // TODO これ微妙なんだけどどうするか・・・。
-        ];
+        $this->postId = $postId;
+        return $this;
     }
+
+
 
 }

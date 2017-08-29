@@ -1,10 +1,10 @@
 <?php
-
-
 namespace Polidog\Blog\Model;
 
 
-final class Author
+use PHPMentors\DomainKata\Entity\EntityInterface;
+
+final class Author implements EntityInterface
 {
     /**
      * @var integer

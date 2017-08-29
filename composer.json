@@ -13,7 +13,15 @@
             "Polidog\\Blog\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Polidog\\Blog\\": "tests/"
+        }
+    },
     "require": {
         "phpmentors/domain-kata": "1.4.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.3"
     }
 }

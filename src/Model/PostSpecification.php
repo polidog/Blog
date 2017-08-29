@@ -8,5 +8,4 @@ final class PostSpecification
     {
         return $author->isAllowPosting();
     }
-
 }
