@@ -1,10 +1,6 @@
 <?php
+namespace Polidog\Blog\Model\Account;
 
-
-namespace vendor\polidog\blog\src\Model\Account;
-
-
-use Polidog\Blog\Model\Account\PasswordEncoderInterface;
 
 class Credential
 {
@@ -58,7 +54,12 @@ class Credential
      */
     public function password()
     {
-        return $this->email;
+        return $this->password;
+    }
+
+    public function createSalt()
+    {
+        $this->salt = md5(random_bytes(128));
     }
 
     /**
@@ -66,7 +67,9 @@ class Credential
      */
     public function encodePassword(PasswordEncoderInterface $encoder)
     {
-        $this->salt = md5(random_bytes(128));
+        if (empty($this->salt)) {
+            $this->createSalt();
+        }
         $this->password = $encoder->encodePassword($this->password, $this->salt);
     }
 

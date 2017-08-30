@@ -1,9 +1,6 @@
 <?php
 namespace Polidog\Blog\Model\Account;
 
-
-use vendor\polidog\blog\src\Model\Account\Credential;
-
 class User
 {
     /**

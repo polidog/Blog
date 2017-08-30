@@ -4,8 +4,8 @@
 namespace Polidog\Blog\Application\UseCase;
 
 
+use Polidog\Blog\Model\Account\Credential;
 use Polidog\Blog\Model\Account\UserRepository;
-use vendor\polidog\blog\src\Model\Account\Credential;
 
 class Authentication
 {
@@ -28,4 +28,6 @@ class Authentication
         $credential = new Credential($email, $password, $salt);
         return $user->authentication($credential);
     }
+
+
 }
