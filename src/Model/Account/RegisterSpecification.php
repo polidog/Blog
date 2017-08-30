@@ -26,8 +26,8 @@ class RegisterSpecification
      */
     public function isSatisfiedBy(User $user)
     {
-        $user = $this->userRepository->findEmail($user->getEmail());
-        return !$user instanceof User;
+        $user = $this->userRepository->findEmail($user->email());
+        return empty($user);
     }
 
 }

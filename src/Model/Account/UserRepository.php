@@ -14,5 +14,5 @@ interface UserRepository
      * @param User $user
      * @return void
      */
-    public function store(User $user);
+    public function create(User $user);
 }

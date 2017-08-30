@@ -1,6 +1,4 @@
 <?php
-
-
 namespace Polidog\Blog\Model\Account;
 
 
@@ -27,7 +25,11 @@ class User
     private $password;
 
     /**
-     * @param int    $id
+     * @var string
+     */
+    private $salt;
+
+    /**
      * @param string $name
      * @param string $email
      * @param string $password
@@ -39,30 +41,39 @@ class User
         $this->password = $password;
     }
 
-    /**
-     * @return int
-     */
-    public function getId(): int
+    public function id()
     {
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id)
+    public function name()
     {
-        $this->id = $id;
-        return $this;
+        return $this->name;
     }
 
-    /**
-     * @return string
-     */
-    public function getEmail(): string
+    public function email()
     {
         return $this->email;
     }
+
+    public function password()
+    {
+        return $this->password;
+    }
+
+    public function salt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * @param PasswordEncoderInterface $encoder
+     */
+    public function encodePassword(PasswordEncoderInterface $encoder)
+    {
+        $this->salt = md5(random_bytes(128));
+        $this->password = $encoder->encodePassword($this->password, $this->salt);
+    }
+
 
 }
