@@ -1,7 +1,7 @@
 <?php
 namespace Polidog\Blog\Model\Post;
 
-final class PostSpecification
+final class SavePostSpecification
 {
     public function isSatisfiedBy(Author $author)
     {

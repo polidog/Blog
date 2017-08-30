@@ -1,7 +1,7 @@
 <?php
 
 
-namespace vendor\polidog\blog\src\Application\UseCase;
+namespace Polidog\Blog\Application\UseCase;
 
 
 use Polidog\Blog\Model\Account\UserRepository;

@@ -8,14 +8,14 @@ use Polidog\Blog\Application\TransactionManager;
 use Polidog\Blog\Model\Post\AuthorRepository;
 use Polidog\Blog\Model\Post\Post;
 use Polidog\Blog\Model\Post\PostNotFoundException;
-use Polidog\Blog\Model\Post\PostRepositoryInterface;
-use Polidog\Blog\Model\Post\PostSpecification;
+use Polidog\Blog\Model\Post\PostRepository;
+use Polidog\Blog\Model\Post\SavePostSpecification;
 use Polidog\Blog\Model\Post\PostStatus;
 
 class AddPost
 {
     /**
-     * @var PostRepositoryInterface
+     * @var PostRepository
      */
     private $postRepository;
 
@@ -30,11 +30,11 @@ class AddPost
     private $transactionManager;
 
     /**
-     * @param PostRepositoryInterface $postRepository
-     * @param AuthorRepository        $authorRepository
-     * @param TransactionManager      $transactionManager
+     * @param PostRepository     $postRepository
+     * @param AuthorRepository   $authorRepository
+     * @param TransactionManager $transactionManager
      */
-    public function __construct(PostRepositoryInterface $postRepository, AuthorRepository $authorRepository, TransactionManager $transactionManager)
+    public function __construct(PostRepository $postRepository, AuthorRepository $authorRepository, TransactionManager $transactionManager)
     {
         $this->postRepository = $postRepository;
         $this->authorRepository = $authorRepository;
@@ -47,7 +47,7 @@ class AddPost
         $postStatus = PostStatus::newDraft();
         $author = $this->authorRepository->get($authorId);
 
-        $spec = new PostSpecification();
+        $spec = new SavePostSpecification();
         if (false === $spec->isSatisfiedBy($author)) {
             throw new PostNotFoundException(); // TODO error message.
         }

@@ -71,6 +71,14 @@ final class Post implements EntityInterface
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isOpen(): bool
+    {
+        return $this->status->isPublished();
+    }
+
 
 
 }
