@@ -2,6 +2,8 @@
 namespace Polidog\Blog\Model\Account;
 
 
+use vendor\polidog\blog\src\Model\Account\Credential;
+
 class User
 {
     /**
@@ -15,65 +17,39 @@ class User
     private $name;
 
     /**
-     * @var string
+     * @var Credential
      */
-    private $email;
+    private $credential;
 
-    /**
-     * @var string
-     */
-    private $password;
-
-    /**
-     * @var string
-     */
-    private $salt;
-
-    /**
-     * @param string $name
-     * @param string $email
-     * @param string $password
-     */
-    public function __construct($name, $email, $password)
+    public function __construct(string $name, Credential $credential)
     {
         $this->name = $name;
-        $this->email = $email;
-        $this->password = $password;
+        $this->credential = $credential;
     }
 
-    public function id()
+    public function id(): int
     {
-        return $this->id;
+        return (int)$this->id;
     }
 
-    public function name()
+    public function name(): string
     {
         return $this->name;
     }
 
-    public function email()
+    public function credential(): Credential
     {
-        return $this->email;
+        return $this->credential;
     }
 
-    public function password()
-    {
-        return $this->password;
-    }
-
-    public function salt()
-    {
-        return $this->salt;
-    }
-
-    /**
-     * @param PasswordEncoderInterface $encoder
-     */
     public function encodePassword(PasswordEncoderInterface $encoder)
     {
-        $this->salt = md5(random_bytes(128));
-        $this->password = $encoder->encodePassword($this->password, $this->salt);
+        $this->credential->encodePassword($encoder);
     }
 
+    public function authentication(Credential $credential): bool
+    {
+        return $this->credential->equals($credential);
+    }
 
 }

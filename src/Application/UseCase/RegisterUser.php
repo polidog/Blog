@@ -10,6 +10,7 @@ use Polidog\Blog\Model\Account\PasswordEncoderInterface;
 use Polidog\Blog\Model\Account\RegisterSpecification;
 use Polidog\Blog\Model\Account\User;
 use Polidog\Blog\Model\Account\UserRepository;
+use vendor\polidog\blog\src\Model\Account\Credential;
 
 class RegisterUser
 {
@@ -50,8 +51,7 @@ class RegisterUser
 
     public function run(string $name, string $email, string $password)
     {
-
-        $user = new User($name, $email, $password);
+        $user = new User($name, Credential::newCredential($email, $password));
         $user->encodePassword($this->encoder);
 
         if (false === $this->specification->isSatisfiedBy($user)) {
