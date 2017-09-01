@@ -1,8 +1,5 @@
 <?php
-
-
-namespace Polidog\Blog\Model;
-
+namespace Polidog\Blog\Model\Post;
 
 use PHPUnit\Framework\TestCase;
 

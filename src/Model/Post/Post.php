@@ -5,7 +5,7 @@ namespace Polidog\Blog\Model\Post;
 
 use PHPMentors\DomainKata\Entity\EntityInterface;
 
-final class Post implements EntityInterface
+class Post implements EntityInterface
 {
     /**
      * @var int

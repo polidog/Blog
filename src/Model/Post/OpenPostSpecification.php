@@ -1,12 +1,5 @@
 <?php
-
-
-namespace vendor\polidog\blog\src\Model\Post;
-
-
-
-use Polidog\Blog\Model\Post\Post;
-use Polidog\Blog\Model\Post\PostStatus;
+namespace Polidog\Blog\Model\Post;
 
 class OpenPostSpecification
 {

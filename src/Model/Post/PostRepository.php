@@ -4,7 +4,6 @@
 namespace Polidog\Blog\Model\Post;
 
 use PHPMentors\DomainKata\Entity\CriteriaInterface;
-use vendor\polidog\blog\src\Model\Post\OpenPostSpecification;
 
 interface PostRepository
 {
