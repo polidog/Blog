@@ -22,6 +22,6 @@
         "phpmentors/domain-kata": "1.4.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.3"
+        "phpunit/phpunit": "^6.3",
     }
 }
