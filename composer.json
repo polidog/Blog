@@ -19,6 +19,7 @@
         }
     },
     "require": {
+        "php": "~7.1",
         "phpmentors/domain-kata": "1.4.*"
     },
     "require-dev": {
