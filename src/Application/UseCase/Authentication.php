@@ -4,7 +4,6 @@
 namespace Polidog\Blog\Application\UseCase;
 
 
-use Polidog\Blog\Model\Account\Credential;
 use Polidog\Blog\Model\Account\PasswordEncoderInterface;
 use Polidog\Blog\Model\Account\UserRepository;
 
