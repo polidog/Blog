@@ -21,8 +21,13 @@ class ListPosts
         $this->postRepository = $postRepository;
     }
 
-    public function run($offset, $limit): void
+    /**
+     * @param $offset
+     * @param $limit
+     * @return []Post
+     */
+    public function run($offset, $limit)
     {
-        $this->postRepository->findOpenPosts($offset, $limit);
+        return $this->postRepository->findOpenPosts($offset, $limit);
     }
 }
