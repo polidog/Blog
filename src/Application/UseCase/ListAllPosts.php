@@ -1,12 +1,12 @@
 <?php
 
-declare(strict_types=1);
 
 namespace Polidog\Blog\Application\UseCase;
 
+
 use Polidog\Blog\Model\Post\PostRepository;
 
-class ListPosts
+class ListAllPosts
 {
     /**
      * @var PostRepository
@@ -28,6 +28,6 @@ class ListPosts
      */
     public function run($offset, $limit)
     {
-        return $this->postRepository->findOpenPosts($offset, $limit);
+        return $this->postRepository->postList($offset, $limit);
     }
 }
