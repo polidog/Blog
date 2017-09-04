@@ -44,11 +44,6 @@ class User
         return $this->credential->password();
     }
 
-    public function salt()
-    {
-        return $this->credential->salt();
-    }
-
     public function encodePassword(PasswordEncoderInterface $encoder)
     {
         $this->credential->encodePassword($encoder);
