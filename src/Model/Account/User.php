@@ -39,7 +39,7 @@ class User
         return $this->credential->email();
     }
 
-    public function password()
+    public function password(): string
     {
         return $this->credential->password();
     }
