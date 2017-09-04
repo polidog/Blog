@@ -60,4 +60,9 @@ class PostStatus
     {
         return new self(self::DRAFT);
     }
+
+    public function getValue()
+    {
+        return $this->status;
+    }
 }

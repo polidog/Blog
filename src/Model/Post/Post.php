@@ -81,4 +81,45 @@ class Post implements EntityInterface
     {
         return $this->status->isPublished();
     }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent(): string
+    {
+        return $this->content;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDisplayDate(): \DateTime
+    {
+        return $this->displayDate;
+    }
+
+    /**
+     * @return Author
+     */
+    public function getAuthor(): Author
+    {
+        return $this->author;
+    }
+
+    /**
+     * @return PostStatus
+     */
+    public function getStatus(): PostStatus
+    {
+        return $this->status;
+    }
+
 }
