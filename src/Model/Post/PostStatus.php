@@ -22,7 +22,7 @@ class PostStatus
     /**
      * @param int $status
      */
-    private function __construct(int $status)
+    public function __construct(int $status)
     {
         $this->status = $status;
     }

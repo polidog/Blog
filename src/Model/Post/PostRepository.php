@@ -6,7 +6,11 @@ namespace Polidog\Blog\Model\Post;
 
 interface PostRepository
 {
-    public function get(int $id);
+    /**
+     * @param int $id
+     * @return Post|null
+     */
+    public function get(int $id): ?Post;
 
     /**
      * @param int               $offset

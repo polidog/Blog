@@ -55,6 +55,19 @@ class Post implements EntityInterface
     }
 
     /**
+     * @return bool
+     */
+    public function isOpen(): bool
+    {
+        return $this->status->isPublished();
+    }
+
+    public function publish()
+    {
+        $this->status->publish();
+    }
+
+    /**
      * @return int
      */
     public function getPostId(): ?int
@@ -74,13 +87,6 @@ class Post implements EntityInterface
         return $this;
     }
 
-    /**
-     * @return bool
-     */
-    public function isOpen(): bool
-    {
-        return $this->status->isPublished();
-    }
 
     /**
      * @return string
@@ -121,4 +127,6 @@ class Post implements EntityInterface
     {
         return $this->status;
     }
+
+
 }
