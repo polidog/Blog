@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Polidog\Blog\Model\Post;
 
@@ -15,7 +16,7 @@ class PostStatus
 
     private static $names = [
         self::DRAFT => '非公開記事',
-        self::PUBLISHED => '公開記事'
+        self::PUBLISHED => '公開記事',
     ];
 
     /**
@@ -28,18 +29,20 @@ class PostStatus
 
     public function __toString()
     {
-        return (string)self::$names[$this->status];
+        return (string) self::$names[$this->status];
     }
 
     public function draft()
     {
         $this->status = self::DRAFT;
+
         return $this;
     }
 
     public function publish()
     {
         $this->status = self::PUBLISHED;
+
         return $this;
     }
 
@@ -57,5 +60,4 @@ class PostStatus
     {
         return new self(self::DRAFT);
     }
-
 }

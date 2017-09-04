@@ -1,17 +1,18 @@
 <?php
 
-namespace Polidog\Blog\Model\Account;
+declare(strict_types=1);
 
+namespace Polidog\Blog\Model\Account;
 
 interface PasswordEncoderInterface
 {
     /**
      * @param string $password
      * @param string $salt
+     *
      * @return mixed
      */
     public function encodePassword(string $password, string $salt);
-
 
     /**
      * Checks a raw password against an encoded password.

@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Polidog\Blog\Model\Post;
 
@@ -63,11 +64,13 @@ class Post implements EntityInterface
 
     /**
      * @param int $postId
+     *
      * @return $this
      */
     public function setPostId(int $postId)
     {
         $this->postId = $postId;
+
         return $this;
     }
 
@@ -78,7 +81,4 @@ class Post implements EntityInterface
     {
         return $this->status->isPublished();
     }
-
-
-
 }

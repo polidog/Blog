@@ -1,13 +1,15 @@
 <?php
-namespace Polidog\Blog\Model\Post;
 
+declare(strict_types=1);
+
+namespace Polidog\Blog\Model\Post;
 
 use PHPMentors\DomainKata\Entity\EntityInterface;
 
 final class Author implements EntityInterface
 {
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 

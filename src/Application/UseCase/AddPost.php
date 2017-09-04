@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Polidog\Blog\Application\UseCase;
-
 
 use Polidog\Blog\Application\TransactionManager;
 use Polidog\Blog\Model\Post\AuthorRepository;
@@ -41,7 +41,6 @@ class AddPost
         $this->transactionManager = $transactionManager;
     }
 
-
     public function run(int $authorId, \DateTime $displayDate, string $title, string $content)
     {
         $postStatus = PostStatus::newDraft();
@@ -58,11 +57,11 @@ class AddPost
         try {
             $this->postRepository->store($post);
             $this->transactionManager->commit();
+
             return $post->getPostId();
         } catch (\Exception $e) {
             $this->transactionManager->rollback();
             throw $e;
         }
     }
-
 }

@@ -1,10 +1,13 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Polidog\Blog\Model\Account;
 
 class User
 {
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
@@ -26,7 +29,7 @@ class User
 
     public function id(): int
     {
-        return (int)$this->id;
+        return (int) $this->id;
     }
 
     public function name(): string
@@ -44,7 +47,7 @@ class User
         return $this->credential->password();
     }
 
-    public function encodePassword(PasswordEncoderInterface $encoder)
+    public function encodePassword(PasswordEncoderInterface $encoder): void
     {
         $this->credential->encodePassword($encoder);
     }
@@ -53,5 +56,4 @@ class User
     {
         return $this->credential->isPasswordValid($encoder, $plainPassword);
     }
-
 }

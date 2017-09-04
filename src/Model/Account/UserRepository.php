@@ -1,18 +1,20 @@
 <?php
-namespace Polidog\Blog\Model\Account;
 
+declare(strict_types=1);
+
+namespace Polidog\Blog\Model\Account;
 
 interface UserRepository
 {
     /**
      * @param string $email
+     *
      * @return User
      */
     public function findEmail(string $email);
 
     /**
      * @param User $user
-     * @return void
      */
-    public function create(User $user);
+    public function create(User $user): void;
 }

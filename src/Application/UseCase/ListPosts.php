@@ -1,10 +1,9 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Polidog\Blog\Application\UseCase;
 
-
-use Polidog\Blog\Model\Post\OpenPostSpecification;
 use Polidog\Blog\Model\Post\PostRepository;
 
 class ListPosts
@@ -22,9 +21,8 @@ class ListPosts
         $this->postRepository = $postRepository;
     }
 
-    public function run($offset, $limit)
+    public function run($offset, $limit): void
     {
-        $spec = new OpenPostSpecification();
-        $this->postRepository->getList($spec, $offset, $limit);
+        $this->postRepository->findOpenPosts($offset, $limit);
     }
 }

@@ -1,9 +1,11 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Polidog\Blog\Model\Account;
 
 /**
- * Class RegisterSpecification
- * @package vendor\polidog\blog\src\Model\Account
+ * Class RegisterSpecification.
  */
 class RegisterSpecification
 {
@@ -22,12 +24,13 @@ class RegisterSpecification
 
     /**
      * @param User $user
+     *
      * @return bool
      */
     public function isSatisfiedBy(User $user)
     {
         $user = $this->userRepository->findEmail($user->email());
+
         return empty($user);
     }
-
 }

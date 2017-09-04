@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Polidog\Blog\Application\UseCase;
-
 
 use Polidog\Blog\Model\Account\PasswordEncoderInterface;
 use Polidog\Blog\Model\Account\UserRepository;
@@ -29,12 +29,10 @@ class Authentication
         $this->encoder = $encoder;
     }
 
-
     public function run(string $email, string $password)
     {
         $user = $this->userRepository->findEmail($email);
+
         return $user->authentication($this->encoder, $password);
     }
-
-
 }

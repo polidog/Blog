@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Polidog\Blog\Application\UseCase;
-
 
 use Polidog\Blog\Application\TransactionManager;
 use Polidog\Blog\Model\Account\Credential;
@@ -48,7 +48,6 @@ class RegisterUser
         $this->encoder = $encoder;
     }
 
-
     public function run(string $name, string $email, string $password)
     {
         $user = new User($name, Credential::newCredential($email, $password));
@@ -70,5 +69,4 @@ class RegisterUser
 
         return $user->id();
     }
-
 }

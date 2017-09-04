@@ -1,6 +1,8 @@
 <?php
-namespace Polidog\Blog\Model\Account;
 
+declare(strict_types=1);
+
+namespace Polidog\Blog\Model\Account;
 
 class Credential
 {
@@ -13,7 +15,6 @@ class Credential
      * @var string
      */
     private $password;
-
 
     /**
      * @param string $email
@@ -29,6 +30,7 @@ class Credential
     /**
      * @param string $email
      * @param string $password
+     *
      * @return Credential
      */
     public static function newCredential(string $email, string $password)
@@ -55,19 +57,19 @@ class Credential
     /**
      * @param PasswordEncoderInterface $encoder
      */
-    public function encodePassword(PasswordEncoderInterface $encoder)
+    public function encodePassword(PasswordEncoderInterface $encoder): void
     {
-        $this->password = $encoder->encodePassword($this->password, "");
+        $this->password = $encoder->encodePassword($this->password, '');
     }
 
     /**
      * @param PasswordEncoderInterface $encoder
      * @param string                   $plainPassword
+     *
      * @return bool
      */
     public function isPasswordValid(PasswordEncoderInterface $encoder, string $plainPassword)
     {
-        return $encoder->isPasswordValid($this->password, $plainPassword, "");
+        return $encoder->isPasswordValid($this->password, $plainPassword, '');
     }
-
 }
