@@ -5,12 +5,12 @@ namespace Polidog\Blog\Application\UseCase;
 
 
 use Polidog\Blog\Application\TransactionManager;
+use Polidog\Blog\Model\Account\Credential;
 use Polidog\Blog\Model\Account\DuplicateEmailException;
 use Polidog\Blog\Model\Account\PasswordEncoderInterface;
 use Polidog\Blog\Model\Account\RegisterSpecification;
 use Polidog\Blog\Model\Account\User;
 use Polidog\Blog\Model\Account\UserRepository;
-use vendor\polidog\blog\src\Model\Account\Credential;
 
 class RegisterUser
 {

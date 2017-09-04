@@ -5,6 +5,7 @@ namespace Polidog\Blog\Application\UseCase;
 
 
 use Polidog\Blog\Model\Account\Credential;
+use Polidog\Blog\Model\Account\PasswordEncoderInterface;
 use Polidog\Blog\Model\Account\UserRepository;
 
 class Authentication
@@ -15,18 +16,25 @@ class Authentication
     private $userRepository;
 
     /**
-     * @param UserRepository $userRepository
+     * @var PasswordEncoderInterface
      */
-    public function __construct(UserRepository $userRepository)
+    private $encoder;
+
+    /**
+     * @param UserRepository           $userRepository
+     * @param PasswordEncoderInterface $encoder
+     */
+    public function __construct(UserRepository $userRepository, PasswordEncoderInterface $encoder)
     {
         $this->userRepository = $userRepository;
+        $this->encoder = $encoder;
     }
 
-    public function run(string $email, string $password, string $salt)
+
+    public function run(string $email, string $password)
     {
         $user = $this->userRepository->findEmail($email);
-        $credential = new Credential($email, $password, $salt);
-        return $user->authentication($credential);
+        return $user->authentication($this->encoder, $password);
     }
 
 

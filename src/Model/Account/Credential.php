@@ -38,13 +38,13 @@ class Credential
      */
     public static function newCredential(string $email, string $password)
     {
-        return new self($email, $password);
+        return new self($email, $password, md5(random_bytes(128)));
     }
 
     /**
      * @return string
      */
-    public function email()
+    public function email(): string
     {
         return $this->email;
     }
@@ -52,14 +52,14 @@ class Credential
     /**
      * @return string
      */
-    public function password()
+    public function password(): string
     {
         return $this->password;
     }
 
-    public function createSalt()
+    public function salt(): string
     {
-        $this->salt = md5(random_bytes(128));
+        return $this->salt;
     }
 
     /**
@@ -67,18 +67,17 @@ class Credential
      */
     public function encodePassword(PasswordEncoderInterface $encoder)
     {
-        if (empty($this->salt)) {
-            $this->createSalt();
-        }
         $this->password = $encoder->encodePassword($this->password, $this->salt);
     }
 
     /**
-     * @param Credential $credential
+     * @param PasswordEncoderInterface $encoder
+     * @param string                   $plainPassword
      * @return bool
      */
-    public function equals(Credential $credential)
+    public function isPasswordValid(PasswordEncoderInterface $encoder, string $plainPassword)
     {
-        return $credential->email() === $this->email && $credential->password() === $this->password;
+        return $encoder->isPasswordValid($this->password, $plainPassword, $this->salt);
     }
+
 }

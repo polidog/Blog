@@ -34,9 +34,19 @@ class User
         return $this->name;
     }
 
-    public function credential(): Credential
+    public function email(): string
     {
-        return $this->credential;
+        return $this->credential->email();
+    }
+
+    public function password()
+    {
+        return $this->credential->password();
+    }
+
+    public function salt()
+    {
+        return $this->credential->salt();
     }
 
     public function encodePassword(PasswordEncoderInterface $encoder)
@@ -44,9 +54,9 @@ class User
         $this->credential->encodePassword($encoder);
     }
 
-    public function authentication(Credential $credential): bool
+    public function authentication(PasswordEncoderInterface $encoder, string $plainPassword): bool
     {
-        return $this->credential->equals($credential);
+        return $this->credential->isPasswordValid($encoder, $plainPassword);
     }
 
 }
