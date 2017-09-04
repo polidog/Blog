@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Polidog\Blog\Application\UseCase;
-
 
 use Polidog\Blog\Model\Post\PostRepository;
 
@@ -24,6 +24,7 @@ class ListAllPosts
     /**
      * @param $offset
      * @param $limit
+     *
      * @return []Post
      */
     public function run($offset, $limit)

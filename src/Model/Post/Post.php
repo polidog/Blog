@@ -121,5 +121,4 @@ class Post implements EntityInterface
     {
         return $this->status;
     }
-
 }

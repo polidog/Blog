@@ -26,6 +26,7 @@ class ListPosts
      * @param              $offset
      * @param              $limit
      * @param PostCriteria $postCriteria
+     *
      * @return mixed
      */
     public function run($offset, $limit, PostCriteria $postCriteria)
