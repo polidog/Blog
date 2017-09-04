@@ -4,8 +4,8 @@
 namespace Polidog\Blog\Application\UseCase;
 
 
+use Polidog\Blog\Model\Post\OpenPostSpecification;
 use Polidog\Blog\Model\Post\PostRepository;
-use vendor\polidog\blog\src\Model\Post\OpenPostSpecification;
 
 class ListPosts
 {
