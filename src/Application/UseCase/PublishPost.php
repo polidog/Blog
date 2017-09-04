@@ -21,11 +21,13 @@ class PublishPost
         $this->repository = $repository;
     }
 
-    public function run(int $postId)
+    public function run(int $postId, int $authorId)
     {
         $post = $this->repository->get($postId);
-        $post->publish();
-        $this->repository->store($post);
+        if ($post->getAuthor()->id() === $authorId) { // TODO なんかもう少しいい書き方できるだろ・・・
+            $post->publish();
+            $this->repository->store($post);
+        }
     }
 
 }
