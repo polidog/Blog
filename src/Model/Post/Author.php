@@ -44,4 +44,9 @@ final class Author implements EntityInterface
     {
         return $this->allowPosting;
     }
+
+    public function id()
+    {
+        return $this->id;
+    }
 }
