@@ -62,7 +62,7 @@ class Post implements EntityInterface
         return $this->status->isPublished();
     }
 
-    public function publish()
+    public function publish(): void
     {
         $this->status->publish();
     }
@@ -86,7 +86,6 @@ class Post implements EntityInterface
 
         return $this;
     }
-
 
     /**
      * @return string
@@ -127,6 +126,4 @@ class Post implements EntityInterface
     {
         return $this->status;
     }
-
-
 }

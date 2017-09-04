@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Polidog\Blog\Application\UseCase;
-
 
 use Polidog\Blog\Model\Post\PostRepository;
 
@@ -21,7 +21,7 @@ class PublishPost
         $this->repository = $repository;
     }
 
-    public function run(int $postId, int $authorId)
+    public function run(int $postId, int $authorId): void
     {
         $post = $this->repository->get($postId);
         if ($post->getAuthor()->id() === $authorId) { // TODO なんかもう少しいい書き方できるだろ・・・
@@ -29,5 +29,4 @@ class PublishPost
             $this->repository->store($post);
         }
     }
-
 }

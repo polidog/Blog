@@ -8,6 +8,7 @@ interface PostRepository
 {
     /**
      * @param int $id
+     *
      * @return Post|null
      */
     public function get(int $id): ?Post;
