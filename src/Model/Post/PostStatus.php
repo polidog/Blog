@@ -21,7 +21,7 @@ class PostStatus
     /**
      * @param int $status
      */
-    public function __construct(int $status)
+    private function __construct(int $status)
     {
         $this->status = $status;
     }
@@ -45,12 +45,12 @@ class PostStatus
 
     public function isDraft()
     {
-        return $this->status = self::DRAFT;
+        return $this->status === self::DRAFT;
     }
 
     public function isPublished()
     {
-        return $this->status = self::PUBLISHED;
+        return $this->status === self::PUBLISHED;
     }
 
     public static function newDraft()
