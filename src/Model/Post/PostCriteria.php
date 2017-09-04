@@ -9,20 +9,20 @@ use PHPMentors\DomainKata\Repository\Operation\CriteriaBuilderInterface;
 abstract class PostCriteria implements CriteriaBuilderInterface
 {
     /**
-     * @var PostStatus
+     * @var integer
      */
-    private $status;
+    protected $status;
 
     /**
      * @var string
      */
-    private $search;
+    protected $search;
 
     /**
-     * @param PostStatus $status
+     * @param int $status
      * @return $this
      */
-    public function setStatus(PostStatus $status)
+    public function setStatus(int $status)
     {
         $this->status = $status;
         return $this;

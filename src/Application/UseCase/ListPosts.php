@@ -7,7 +7,7 @@ namespace Polidog\Blog\Application\UseCase;
 use Polidog\Blog\Model\Post\PostCriteria;
 use Polidog\Blog\Model\Post\PostRepository;
 
-class ListOpenPosts
+class ListPosts
 {
     /**
      * @var PostRepository

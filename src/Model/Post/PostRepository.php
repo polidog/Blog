@@ -16,20 +16,6 @@ interface PostRepository
      */
     public function postList(int $offset, int $limit, PostCriteria $criteria = null);
 
-    /**
-     * @param int $offset
-     * @param int $limit
-     *
-     * @return []Post
-     */
-    public function findOpenPosts(int $offset, int $limit);
-
-    /**
-     * @param int $offset
-     * @param int $limit
-     * @return []Post
-     */
-    public function findAllPosts(int $offset, int $limit);
 
     /**
      * @param Post $post
