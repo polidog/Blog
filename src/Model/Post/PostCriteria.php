@@ -18,24 +18,14 @@ abstract class PostCriteria implements CriteriaBuilderInterface
      */
     protected $search;
 
-    /**
-     * @param int $status
-     *
-     * @return $this
-     */
-    public function setStatus(int $status)
+    public function setStatus(int $status): PostCriteria
     {
         $this->status = $status;
 
         return $this;
     }
 
-    /**
-     * @param string $search
-     *
-     * @return $this
-     */
-    public function setSearch(string $search)
+    public function setSearch(string $search): PostCriteria
     {
         $this->search = $search;
 

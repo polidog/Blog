@@ -28,10 +28,6 @@ class Post implements EntityInterface
      */
     private $status;
 
-    /**
-     * @param Author     $author
-     * @param PostStatus $postStatus
-     */
     public function __construct(Author $author, PostStatus $postStatus)
     {
         $this->author = $author;
@@ -53,37 +49,23 @@ class Post implements EntityInterface
         $this->status->publish();
     }
 
-    /**
-     * @return int
-     */
     public function getPostId(): ?int
     {
         return $this->postId;
     }
 
-    /**
-     * @param int $postId
-     *
-     * @return $this
-     */
-    public function setPostId(int $postId)
+    public function setPostId(int $postId): Post
     {
         $this->postId = $postId;
 
         return $this;
     }
 
-    /**
-     * @return Author
-     */
     public function getAuthor(): Author
     {
         return $this->author;
     }
 
-    /**
-     * @return PostStatus
-     */
     public function getStatus(): PostStatus
     {
         return $this->status;
