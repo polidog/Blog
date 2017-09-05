@@ -14,19 +14,9 @@ class Post implements EntityInterface
     private $postId;
 
     /**
-     * @var string
+     * @var Article
      */
-    private $title;
-
-    /**
-     * @var string
-     */
-    private $content;
-
-    /**
-     * @var \DateTime
-     */
-    private $displayDate;
+    private $article;
 
     /**
      * @var Author
@@ -39,27 +29,23 @@ class Post implements EntityInterface
     private $status;
 
     /**
-     * @param            $title
-     * @param            $content
-     * @param \DateTime  $displayDate
      * @param Author     $author
      * @param PostStatus $postStatus
      */
-    public function __construct($title, $content, \DateTime $displayDate, Author $author, PostStatus $postStatus)
+    public function __construct(Author $author, PostStatus $postStatus)
     {
-        $this->title = $title;
-        $this->content = $content;
-        $this->displayDate = $displayDate;
         $this->author = $author;
         $this->status = $postStatus;
     }
 
-    /**
-     * @return bool
-     */
     public function isOpen(): bool
     {
         return $this->status->isPublished();
+    }
+
+    public function update(Article $article): void
+    {
+        $this->article = $article;
     }
 
     public function publish(): void
@@ -88,30 +74,6 @@ class Post implements EntityInterface
     }
 
     /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
-
-    /**
-     * @return string
-     */
-    public function getContent(): string
-    {
-        return $this->content;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getDisplayDate(): \DateTime
-    {
-        return $this->displayDate;
-    }
-
-    /**
      * @return Author
      */
     public function getAuthor(): Author
@@ -125,5 +87,13 @@ class Post implements EntityInterface
     public function getStatus(): PostStatus
     {
         return $this->status;
+    }
+
+    public static function newPost(Article $article, Author $author, PostStatus $postStatus)
+    {
+        $self = new self($author, $postStatus);
+        $self->update($article);
+
+        return $self;
     }
 }
