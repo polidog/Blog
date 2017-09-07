@@ -61,14 +61,19 @@ class Post implements EntityInterface
         return $this;
     }
 
-    public function getAuthor(): Author
+    public function author(): Author
     {
         return $this->author;
     }
 
-    public function getStatus(): PostStatus
+    public function status(): PostStatus
     {
         return $this->status;
+    }
+
+    public function article()
+    {
+        return $this->article;
     }
 
     public static function newPost(Article $article, Author $author, PostStatus $postStatus)

@@ -24,7 +24,7 @@ class PublishPost
     public function run(int $postId, int $authorId): void
     {
         $post = $this->repository->get($postId);
-        if ($post->getAuthor()->id() === $authorId) { // TODO なんかもう少しいい書き方できるだろ・・・
+        if ($post->author()->id() === $authorId) { // TODO なんかもう少しいい書き方できるだろ・・・
             $post->publish();
             $this->repository->store($post);
         }
