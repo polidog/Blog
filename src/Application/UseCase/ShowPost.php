@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Polidog\Blog\Application\UseCase;
-
 
 use Polidog\Blog\Model\Post\OpenPostSpecification;
 use Polidog\Blog\Model\Post\PostRepository;
@@ -36,8 +36,7 @@ class ShowPost
             // TODO custom exception.
             throw new \RuntimeException();
         }
+
         return $post;
     }
-
-
 }

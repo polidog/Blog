@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Polidog\Blog\Model\Post;
-
 
 class OpenPostSpecification
 {
@@ -11,4 +11,3 @@ class OpenPostSpecification
         return $post->isOpen();
     }
 }
-
